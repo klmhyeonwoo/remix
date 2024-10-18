@@ -1,6 +1,13 @@
 import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import react from "@vitejs/plugin-react";
+import path from "path";
+import svgr from "vite-plugin-svgr";
+import dotenv from "dotenv";
+import { VitePluginRadar } from "vite-plugin-radar";
+
+dotenv.config();
 
 export default defineConfig({
   plugins: [
@@ -12,5 +19,18 @@ export default defineConfig({
       },
     }),
     tsconfigPaths(),
+    svgr(),
+    react({ jsxImportSource: "@emotion/react" }),
+    VitePluginRadar({
+      // Google Analytics tag injection
+      analytics: {
+        id: process.env.VITE_GOOGLE_ANALYTICS,
+      },
+    }),
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./app"),
+    },
+  },
 });

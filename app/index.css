@@ -1,0 +1,30 @@
+:root,
+button,
+input,
+textarea {
+  font-family: Pretendard !important;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100dvh;
+  font-size: 1.4rem;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 56px;
+  border-radius: 8px;
+  background-clip: content-box;
+  background-color: rgba(0, 0, 0, 0.1);
+}

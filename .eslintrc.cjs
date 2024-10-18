@@ -1,84 +1,57 @@
-/**
- * This is intended to be a basic starting point for linting in your app.
- * It relies on recommended configs out of the box for simplicity, but you can
- * and should modify this configuration to best suit your team's needs.
- */
-
-/** @type {import('eslint').Linter.Config} */
+/* eslint-env node */
 module.exports = {
   root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended",
+    "plugin:import/recommended",
+    "prettier",
+  ],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
+    project: true,
+    tsconfigRootDir: __dirname,
+  },
+  ignorePatterns: ["postcss.config.cjs", "dist", ".eslintrc.cjs", "**/*.cjs"],
+  plugins: ["react-refresh", "react", "import"],
+  rules: {
+    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
+    "react/no-unknown-property": ["error", { ignore: ["css"] }],
+    "@typescript-eslint/no-misused-promises": "off",
+    "react-refresh/only-export-components": ["off", { allowConstantExport: true }],
+    "react/react-in-jsx-scope": "off",
+    "no-restricted-imports": ["error", { patterns: ["../*", "../**/*"] }],
+    "import/newline-after-import": "warn",
+    "import/no-default-export": "warn",
+    "import/order": [
+      "warn",
+      {
+        "newlines-between": "always",
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
+      },
+    ],
+  },
+  settings: {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+        project: "app/",
+      },
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
     },
   },
-  env: {
-    browser: true,
-    commonjs: true,
-    es6: true,
-  },
-  ignorePatterns: ["!**/.server", "!**/.client"],
-
-  // Base config
-  extends: ["eslint:recommended"],
-
-  overrides: [
-    // React
-    {
-      files: ["**/*.{js,jsx,ts,tsx}"],
-      plugins: ["react", "jsx-a11y"],
-      extends: [
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/recommended",
-      ],
-      settings: {
-        react: {
-          version: "detect",
-        },
-        formComponents: ["Form"],
-        linkComponents: [
-          { name: "Link", linkAttribute: "to" },
-          { name: "NavLink", linkAttribute: "to" },
-        ],
-        "import/resolver": {
-          typescript: {},
-        },
-      },
-    },
-
-    // Typescript
-    {
-      files: ["**/*.{ts,tsx}"],
-      plugins: ["@typescript-eslint", "import"],
-      parser: "@typescript-eslint/parser",
-      settings: {
-        "import/internal-regex": "^~/",
-        "import/resolver": {
-          node: {
-            extensions: [".ts", ".tsx"],
-          },
-          typescript: {
-            alwaysTryTypes: true,
-          },
-        },
-      },
-      extends: [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:import/recommended",
-        "plugin:import/typescript",
-      ],
-    },
-
-    // Node
-    {
-      files: [".eslintrc.cjs"],
-      env: {
-        node: true,
-      },
-    },
-  ],
 };
