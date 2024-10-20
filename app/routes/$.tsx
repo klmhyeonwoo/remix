@@ -1,15 +1,10 @@
 import { css } from "@emotion/react";
-import { Link, useNavigate } from "@remix-run/react";
+import { Link } from "@remix-run/react";
 
 import NotFound from "@/assets/not-found.svg?react";
 import { DESIGN_SYSTEM_COLOR } from "@/style/variable.ts";
 
 export default function Error() {
-  const navigate = useNavigate();
-  const handleClick = () => {
-    alert("메인 홈으로 이동합니다!");
-    navigate("/");
-  };
   return (
     <div
       css={css`

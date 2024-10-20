@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 
-import { feedProps } from "@/app/main";
 import { DESIGN_SYSTEM_COLOR } from "@/style/variable.ts";
+import { feedProps } from "@/types/feed";
 
 export default function ArticleCard({ date, link, title, writer }: feedProps) {
   return (
