@@ -26,12 +26,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta property="og:url" content="https://www.feeed.kr/" />
         <meta property="og:title" content="feeed" />
         <meta property="og:image" content="https://raw.githubusercontent.com/klmhyeonwoo/Archieve/main/feeed-og.png" />
-        <meta property="og:description" content="위대한 개발자들의 블로그 모음 서비스, feeed" />
+        <meta property="og:description" content="유명 개발자, 네카라쿠배 개발자들의 블로그 모음 서비스 - feeed" />
         <meta property="og:site_name" content="feeed" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="description" content="위대한 개발자들의 블로그 모음 서비스, feeed" />
+        <meta name="description" content="유명 개발자, 네카라쿠배 개발자들의 블로그 모음 서비스 - feeed" />
         <title>feeed</title>
         <Meta />
         <Links />
