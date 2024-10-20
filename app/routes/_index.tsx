@@ -171,9 +171,9 @@ export default function Main() {
                   font-weight: 500;
                 `}
               >
-                {" 10명"}
+                {" 110개"}
               </span>
-              의 개발자들이 피드에 블로그를 등록했어요
+              가 넘는 멋진 게시글을 서비스하고 있어요
             </span>
           </div>
           <div
