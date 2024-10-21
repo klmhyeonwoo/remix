@@ -66,6 +66,9 @@ export default function App() {
 
   useEffect(() => {
     ReactGA.initialize(googleTrackingId);
+  }, []);
+
+  useEffect(() => {
     ReactGA.pageview(location.pathname);
   }, [location]);
   return (
