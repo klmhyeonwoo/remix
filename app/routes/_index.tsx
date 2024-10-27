@@ -241,6 +241,7 @@ export default function Main() {
                 column-gap: 2rem;
                 padding: 2rem 0 2rem 0;
                 overflow-y: auto;
+                overflow-x: hidden;
                 height: calc(100vh - 2rem);
                 position: relative;
               `}
