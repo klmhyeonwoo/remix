@@ -14,7 +14,6 @@ body {
   font-size: 1.4rem;
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
 }
 
 ::-webkit-scrollbar {
